@@ -1,4 +1,4 @@
-package ev.aykhan.generic_list_adapter
+package ev.aykhan.generic_list_adapter.differable
 
 import android.annotation.SuppressLint
 import androidx.recyclerview.widget.DiffUtil
