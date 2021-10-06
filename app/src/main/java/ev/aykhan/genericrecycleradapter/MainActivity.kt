@@ -2,17 +2,27 @@ package ev.aykhan.genericrecycleradapter
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import ev.aykhan.generic_list_adapter.simple.GenericListAdapter
+import androidx.viewbinding.ViewBinding
+import ev.aykhan.generic_list_adapter.differable.GenericMultiViewDiffListAdapter
 import ev.aykhan.genericrecycleradapter.databinding.ListItemBinding
 
 class MainActivity : AppCompatActivity() {
 
-    private val adapter: GenericListAdapter<ListItemBinding, String> by lazy {
-        GenericListAdapter(
-            inflate = ListItemBinding::inflate,
+    private val adapter: GenericMultiViewDiffListAdapter<ViewBinding, String> by lazy {
+        GenericMultiViewDiffListAdapter(
+            viewType = { data ->
+                when (data) {
+                    else -> -1
+                }
+            },
+            inflate = { viewType ->
+                when (viewType) {
+                    else -> ListItemBinding::inflate
+                }
+            },
             onBind = { binding, data ->
 
-            }
+            },
         )
     }
 
