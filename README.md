@@ -18,6 +18,6 @@ allprojects {
 
 ```
 dependencies {
-   implementation 'com.github.aykhan-dev:GenericListAdapter:Tag'
+   implementation 'com.github.aykhan-dev:GenericListAdapter:1.0'
 }
 ```
