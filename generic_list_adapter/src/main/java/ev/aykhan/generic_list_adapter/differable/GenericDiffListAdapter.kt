@@ -2,6 +2,7 @@ package ev.aykhan.generic_list_adapter.differable
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.viewbinding.ViewBinding
 import ev.aykhan.generic_list_adapter.GenericViewHolder
@@ -9,7 +10,8 @@ import ev.aykhan.generic_list_adapter.GenericViewHolder
 class GenericDiffListAdapter<Binding : ViewBinding, Model>(
     private val inflate: (LayoutInflater, ViewGroup?, Boolean) -> Binding,
     private val onBind: (Binding, Model) -> Unit,
-) : ListAdapter<Model, GenericViewHolder<Binding, Model>>(GenericDiffCallback<Model>()) {
+    differ: DiffUtil.ItemCallback<Model> = GenericDiffCallback()
+) : ListAdapter<Model, GenericViewHolder<Binding, Model>>(differ) {
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
